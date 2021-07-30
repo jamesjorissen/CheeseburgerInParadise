@@ -1,0 +1,46 @@
+li {
+  padding: 5px;
+  margin: 5px;
+  background: #faebd7;
+}
+
+body {
+  color: blanchedalmond;
+  background-color: chartreuse;
+  margin-top: 24px;
+}
+.label {
+  font-weight: bold;
+}
+
+.create-update-form {
+  padding: 5px;
+  margin: 5px;
+  background: aqua;
+}
+
+.form-group {
+  margin-bottom: 5px;
+}
+
+ul {
+  color: darkblue;
+  text-align: center;
+  font-weight: 999;
+}
+
+h2 {
+  color: whitesmoke;
+}
+
+h3 {
+  color: whitesmoke;
+}
+
+.availableoptions {
+  color: magenta;
+}
+
+.eatenburgers {
+  color: blueviolet;
+}
