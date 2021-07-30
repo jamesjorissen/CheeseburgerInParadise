@@ -1,5 +1,5 @@
 // Import MySQL connection.
-const connection = require("./connection.js");
+var connection = require("./connection.js");
 
 
 function printQuestionMarks(num) {
@@ -36,39 +36,37 @@ function objToSql(ob) {
 }
 /* ===================== HELPER FUNCTIONS ==================== */
 
-const orm = {
-  selectAll: function (table, cb) {
-    const queryString = `SELECT * FROM ${table};`;
-    connection.query(queryString, function (err, result) {
-      if (err) {
-        throw err;
-      }
-      cb(result);
-    });
-  },
+var orm = {
+  var queryString = "SELECT * FROM " + tableInput + ";";
+  connection.query(queryString, function (err, result) {
+    if (err) throw err;
+    cb(result);
+  });
+},
+
 
   insertOne: function (table, cols, values, cb) {
     const queryString = `INSERT INTO ${table} (${cols.toString()}) VALUES(${printQuestionMarks(values.length)});`;
-    console.log("Form submited", queryString);
-    connection.query(queryString, values, function (err, result) {
-      if (err) {
-        throw err;
-      }
+console.log("Form submited", queryString);
+connection.query(queryString, values, function (err, result) {
+  if (err) {
+    throw err;
+  }
 
-      cb(result);
-    });
+  cb(result);
+});
   },
 
-  updateOne: function (table, objColVals, condition, cb) {
-    const queryString = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition};`;
-    console.log("Update clicked", queryString);
-    connection.query(queryString, function (err, result) {
-      if (err) {
-        throw err;
-      }
-      cb(result);
-    });
-  }
+updateOne: function (table, objColVals, condition, cb) {
+  const queryString = `UPDATE ${table} SET ${objToSql(objColVals)} WHERE ${condition};`;
+  console.log("Update clicked", queryString);
+  connection.query(queryString, function (err, result) {
+    if (err) {
+      throw err;
+    }
+    cb(result);
+  });
+}
 }
 
 
